@@ -1,0 +1,371 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Murilo Costa Sodré | Técnico em Edificações</title>
+
+  <meta name="description" content="Técnico em Edificações. Projetos arquitetônicos, estruturais, elétricos, hidrossanitários, legais, CAIXA e apoio técnico à engenharia.">
+
+  <style>
+    :root{
+      /* CORES BASE */
+      --gold:#c9a24d;
+      --gold-light:#f5e7c3;
+      --gold-dark:#9e7c32;
+      --text:#f5f5f5;
+      --muted:#b8b2a7;
+      --line:#2a2a2a;
+    }
+
+    /* BOTÃO WHATSAPP – GRADIENTE DOURADO */
+    .btn-whatsapp{
+      background: linear-gradient(
+        135deg,
+        var(--gold-light),
+        var(--gold-dark)
+      );
+      border: none;
+      color: #000;
+      font-weight: 700;
+      box-shadow: 0 6px 18px rgba(201,162,77,0.45);
+      transition: all 0.25s ease;
+    }
+
+    /* IMPORTANTE: aqui eu ajustei o transform para SOMAR
+       o efeito de crescer + subir (sem perder nada) */
+    .btn-whatsapp:hover{
+      filter: brightness(1.1);
+      transform: scale(1.08) translateY(-1px);
+      box-shadow: 0 10px 28px rgba(201,162,77,0.6);
+    }
+
+    *{box-sizing:border-box}
+
+    body{
+      margin:0;
+      font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      color:var(--text);
+
+      /* GRADIENTE DE FUNDO (PRETO → DOURADO, SUAVE) */
+      background:
+        radial-gradient(1200px 600px at 80% 120%, rgba(201,162,77,.18), transparent 60%),
+        linear-gradient(180deg, #0b0b0b 0%, #0b0b0b 65%, #2a210f 100%);
+    }
+
+    a{text-decoration:none;color:inherit}
+
+    .wrap{
+      max-width:1100px;
+      margin:auto;
+      padding:28px 18px 60px;
+    }
+
+    header{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+
+    /* LOGO */
+    .logo{
+      display:flex;
+      gap:14px;
+      align-items:center;
+      font-weight:700;
+    }
+
+    .logo img{
+      height:48px;
+      width:auto;
+    }
+
+    nav a{
+      padding:10px 14px;
+      border-radius:10px;
+      color:var(--muted);
+    }
+
+    nav a:hover{
+      background:rgba(255,255,255,.05);
+      color:var(--gold);
+    }
+
+    /* TEXTO PRINCIPAL COM GRADIENTE */
+    .gradient-text{
+      background:linear-gradient(135deg,var(--gold),#ffffff);
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+      background-clip:text;
+      color:transparent;
+    }
+
+    .hero{
+      margin-top:30px;
+      padding:28px;
+      border:1px solid var(--line);
+      border-radius:20px;
+      display:grid;
+      grid-template-columns:1.3fr .7fr;
+      gap:24px;
+      background:rgba(0,0,0,.35);
+      backdrop-filter: blur(4px);
+    }
+
+    .hero h1{
+      margin:0 0 12px;
+      font-size:36px;
+      line-height:1.2;
+    }
+
+    .hero p{
+      margin:0 0 20px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .cta{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+    }
+
+    .btn{
+      padding:12px 18px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:rgba(255,255,255,.06);
+      font-weight:600;
+      color:var(--text);
+
+      /* AQUI está o efeito de aumentar no hover (para TODOS os botões) */
+      transition: transform 0.25s ease, filter 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    /* AUMENTA TODOS AO PASSAR O MOUSE */
+    .btn:hover{
+      transform: scale(1.06);
+    }
+
+    .btn.primary{
+      background:linear-gradient(135deg,var(--gold),var(--gold-dark));
+      border:none;
+      color:#000;
+    }
+
+    .side{
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:18px;
+      background:rgba(0,0,0,.45);
+      font-size:14px;
+      line-height:1.6;
+      color:var(--muted);
+    }
+
+    section{margin-top:26px}
+
+    .grid{
+      display:grid;
+      grid-template-columns:repeat(12,1fr);
+      gap:14px;
+    }
+
+    .card{
+      grid-column:span 12;
+      border:1px solid var(--line);
+      border-radius:16px;
+      padding:20px;
+      background:rgba(0,0,0,.45);
+    }
+
+    .span6{grid-column:span 6}
+
+    h2{
+      margin-top:0;
+    }
+
+    ul{
+      margin:10px 0 0 18px;
+      color:var(--muted);
+      line-height:1.7;
+    }
+
+    /* PORTFÓLIO */
+    .portfolio-grid{
+      margin-top:14px;
+      display:grid;
+      grid-template-columns:repeat(3,1fr);
+      gap:14px;
+    }
+
+    .portfolio-item{
+      border:1px solid var(--line);
+      border-radius:14px;
+      overflow:hidden;
+      background:#0e0e0e;
+    }
+
+    .portfolio-item img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      display:block;
+    }
+
+    .cap{
+      padding:12px;
+      font-size:14px;
+      color:var(--muted);
+      line-height:1.5;
+    }
+
+    footer{
+      margin-top:40px;
+      font-size:13px;
+      color:var(--muted);
+      display:flex;
+      justify-content:space-between;
+      flex-wrap:wrap;
+      gap:10px;
+      border-top:1px solid var(--line);
+      padding-top:16px;
+    }
+
+    @media(max-width:900px){
+      .hero{grid-template-columns:1fr}
+      .portfolio-grid{grid-template-columns:1fr}
+      .span6{grid-column:span 12}
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+
+    <header>
+      <div class="logo">
+        <img src="img/4.png" alt="Logo Murilo Costa Sodré">
+        <div>
+          Murilo Costa Sodré<br>
+          <small style="color:#b8b2a7">Técnico em Edificações</small>
+        </div>
+      </div>
+
+      <nav>
+        <a href="#servicos">Serviços</a>
+        <a href="#portfolio">Portfólio</a>
+        <a href="#mapa">Mapa</a>
+        <a href="#contato">Contato</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div>
+        <h1 class="gradient-text">Engenharia técnica com precisão, responsabilidade e método.</h1>
+        <p>
+          Atuação completa em projetos e apoio técnico à engenharia,
+          com documentação organizada e padrão profissional.
+        </p>
+
+        <div class="cta">
+          <a class="btn btn-whatsapp" href="https://wa.me/5551999931278" target="_blank">WhatsApp</a>
+          <a class="btn" href="https://www.instagram.com/murilocostaedificacoes/" target="_blank">Instagram</a>
+          <a class="btn" href="#contato">Solicitar orçamento</a>
+        </div>
+      </div>
+
+      <div class="side">
+        <strong class="gradient-text">Ferramentas</strong><br>
+        Revit • TQS • Render • Excel • Documentação técnica<br><br>
+
+        <strong class="gradient-text">Atuação técnica</strong><br>
+        Apoio a engenheiros, arquitetos, trabalhadores da construção civil
+        e profissionais do mercado imobiliário.<br><br>
+
+        <strong class="gradient-text">Projetos CAIXA</strong><br>
+        Desenvolvimento de projetos para financiamento habitacional
+        junto à CAIXA Econômica Federal.<br><br>
+
+        <strong class="gradient-text">Região</strong><br>
+        Encruzilhada do Sul / RS
+      </div>
+    </section>
+
+    <section id="servicos" class="grid">
+      <div class="card span6">
+        <h2 class="gradient-text">Projetos executados</h2>
+        <ul>
+          <li>Projeto arquitetônico</li>
+          <li>Projeto estrutural</li>
+          <li>Projeto elétrico</li>
+          <li>Projeto hidrossanitário</li>
+          <li>Projeto legal / prefeitura</li>
+          <li>Projetos habitacionais (CAIXA)</li>
+          <li>Compatibilização de projetos</li>
+          <li>Orçamentos, quantitativos e medições</li>
+          <li>Vistorias técnicas e relatórios</li>
+          <li>Outros projetos compatíveis com a área</li>
+        </ul>
+      </div>
+
+      <div class="card span6">
+        <h2 class="gradient-text">Forma de trabalho</h2>
+        <ul>
+          <li>Levantamento técnico e briefing</li>
+          <li>Análise normativa</li>
+          <li>Desenvolvimento técnico</li>
+          <li>Compatibilização entre disciplinas</li>
+          <li>Entrega clara e documentada</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="portfolio" class="card">
+      <h2 class="gradient-text">Portfólio</h2>
+
+      <div class="portfolio-grid">
+        <div class="portfolio-item">
+          <img src="img/1.png">
+          <div class="cap"><strong>Projeto arquitetônico</strong><br>Desenvolvimento técnico.</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/2.png">
+          <div class="cap"><strong>Compatibilização</strong><br>Integração de disciplinas.</div>
+        </div>
+        <div class="portfolio-item">
+          <img src="img/3.png">
+          <div class="cap"><strong>Renderização</strong><br>Apresentação realista.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="mapa" class="card">
+      <h2 class="gradient-text">Área de atendimento</h2>
+      <p style="color:var(--muted)">Encruzilhada do Sul/RS e municípios da região.</p>
+      <iframe src="https://www.google.com/maps?q=Encruzilhada+do+Sul+RS&output=embed"
+              width="100%" height="360" style="border:0;border-radius:14px;"></iframe>
+    </section>
+
+    <section id="contato" class="card">
+      <h2 class="gradient-text">Contato</h2>
+      <p style="color:var(--muted)">
+        📧 murilocosta.edificacoes@gmail.com<br>
+        📱 WhatsApp: (51) 99931-2787<br>
+        📸 Instagram: @murilocostaedificacoes
+      </p>
+    </section>
+
+    <footer>
+      <div>© <span id="ano"></span> Murilo Costa Sodré</div>
+      <div>Técnico em Edificações — Atuação profissional</div>
+    </footer>
+
+  </div>
+
+  <script>
+    document.getElementById("ano").innerText = new Date().getFullYear();
+  </script>
+</body>
+</html>
